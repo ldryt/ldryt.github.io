@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I am Lucas Ladreyt (ldryt), a Computer Science Student seeking for an internship in Software Engineering. Explore here my projects, resume, and connect via GitHub, LinkedIn, and email ✿ ଘ(੭*ˊᵕˋ)੭* ̀ˋ ɪɴᴛᴇʀɴᴇᴛ">
+    <title>Lucas Ladreyt</title>
+    <style>
+        :root {
+            --spacing-unit: clamp(1rem, 2vw, 2rem);
+            --primary-color: #ffffff;
+            --secondary-color: #b3b3b3;
+            --bg-color: #0a0a0a;
+            --accent-color: #3b82f6;
+            --highlight-color: #1e40af;
+            --success-color: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes statusBlink {
+            0%, 100% { border-color: var(--success-color); }
+            50% { border-color: transparent; }
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--primary-color);
+            min-height: 100vh;
+            font-family: Arial, bold;
+        }
+
+        main {
+            width: min(90%, 1200px);
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            border: 2px solid var(--accent-color);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .name-container {
+            margin-bottom: calc(var(--spacing-unit));
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .full-name {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            height: 4.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .name-part {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            white-space: nowrap;
+            background-clip: text;
+        }
+
+        .username {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.08em;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+        }
+
+        .social {
+            display: flex;
+            gap: 1rem;
+            font-size: 1rem;
+            animation: fadeIn 0.8s ease-out 1s backwards;
+            margin: 0.5rem 0 1.5rem;
+        }
+
+        .social-button {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .social-button:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .status-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease-out 0.6s backwards;
+            background: rgba(59, 130, 246, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .status-line {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            letter-spacing: 0.02em;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .status-line.description {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .status-line.blinking {
+            padding: 0.5rem 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 4px;
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+            text-decoration: none;
+            display: inline-block;
+            animation: statusBlink 2s infinite;
+            animation-iteration-count: 6; /* 12s */
+            font-weight: normal;
+        }
+
+        .status-line.blinking:hover {
+            background: rgba(34, 197, 94, 0.2);
+        }
+
+        .button {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fadeIn 0.8s ease-out 0.8s backwards;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            background: var(--highlight-color);
+        }
+
+        @media (max-width: 600px) {
+            .full-name {
+                height: auto;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .name-part {
+                position: static;
+                display: block;
+                transform: none;
+            }
+
+            .social {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucas Ladreyt",
+        "image": "https://avatars.githubusercontent.com/u/145599537",
+        "jobTitle": "Computer Science Student",
+        "url": "https://lucasladreyt.eu",
+        "sameAs": [
+            "https://github.com/ldryt",
+            "https://linkedin.com/in/ldryt",
+            "mailto:ldryt@posteo.com"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <main>
+        <div class="profile-image">
+            <img src="https://avatars.githubusercontent.com/u/145599537" alt="Image of Lucas Ladreyt">
+        </div>
+
+        <div class="name-container">
+            <h1 class="full-name">
+                <span class="name-part">Lucas</span>
+                <span class="name-part">Ladreyt</span>
+            </h1>
+            <div class="username">ldryt</div>
+        </div>
+
+        <nav class="social">
+            <a href="https://github.com/ldryt" class="social-button">Github</a>
+            <a href="https://linkedin.com/in/ldryt" class="social-button">LinkedIn</a>
+            <a href="mailto:ldryt@posteo.com" class="social-button">Email</a>
+        </nav>
+
+        <div class="status-container">
+            <div class="status-line">Computer Science Student</div>
+            <div class="status-line description">I am Lucas Ladreyt (ldryt), a Computer Science Student seeking for an internship in Software Engineering. Explore here my projects, resume, and connect via GitHub, LinkedIn, and email ✿ ଘ(੭*ˊᵕˋ)੭* ̀ˋ ɪɴᴛᴇʀɴᴇᴛ</div>
+            <a href="#" class="status-line blinking">Seeking Internship</a>
+        </div>
+
+        <a href="#" class="button">Resume</a>
+    </main>
+</body>
+</html>
